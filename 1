@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class A {
+
+private:
+    string name;
+public:
+
+    A(){}
+
+    A(const string& name) : name(name){}
+    
+
+    void print() {
+        cout << " Lvalue: " << name << endl;
+    }
+
+    void print1()& {
+        cout << " Lvalue Reference: " << name << endl;
+    }
+
+    void print2() const& {
+        cout << " Const Lalue Reference: " << name << endl;
+    }
+
+    void print3()&& {
+        cout << " Ralue Reference: " << name << endl;
+    }
+
+    void print4() const&& {
+        cout << " Const Rvalue Reference: " << name << endl;
+    }
+
+};
+
+int main() {
+    A obj("ban");
+
+    obj.print();
+
+    obj.print1();
+
+    obj.print2();
+
+    A("ban").print3();
+    
+    A("ban").print4();
+    
+}
